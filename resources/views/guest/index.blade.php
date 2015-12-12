@@ -1,0 +1,1 @@
+@extends('guest.template._start')

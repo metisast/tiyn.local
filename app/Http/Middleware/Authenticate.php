@@ -34,7 +34,7 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($this->auth->guest()) {
+        if ($this->auth->guest() || $this->auth->user()->role_id != 1) {
             if ($request->ajax()) {
                 return response('Unauthorized.', 401);
             } else {
