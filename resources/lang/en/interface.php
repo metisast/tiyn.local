@@ -24,6 +24,7 @@
         'userAdmin' => 'Administrator',
 
         /*Guest*/
+        'guestWelcome' => 'Welcome!'
 
 
     ];
