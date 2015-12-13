@@ -112,6 +112,132 @@
                 </ul>
             </div>
         </nav>
+        <!-- ====================== -->
+        <nav class="navbar-default navbar-main-white yamm">
+            <div class="container">
+                <div class="collapse navbar-collapse navbar-collapse-no-pad" id="main-nav-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown"><a href="#"><span >Shop by</span>Department<i class="drop-caret" data-toggle="dropdown"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-category">
+                                <li><a href="#"><i class="fa fa-home dropdown-menu-category-icon"></i>Home & Garden</a>
+                                    <div class="dropdown-menu-category-section">
+                                        <div class="dropdown-menu-category-section-inner">
+                                            <div class="dropdown-menu-category-section-content">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <h5 class="dropdown-menu-category-title">Home & Garden</h5>
+                                                        <ul class="dropdown-menu-category-list">
+                                                            <li><a href="#">Home</a>
+                                                                <p>Vehicula nostra lacus dapibus himenaeos</p>
+                                                            </li>
+                                                            <li><a href="#">Kitchen</a>
+                                                                <p>Vel dolor duis libero ligula</p>
+                                                            </li>
+                                                            <li><a href="#">Furniture & Decor</a>
+                                                                <p>Magnis consectetur facilisi habitasse curae</p>
+                                                            </li>
+                                                            <li><a href="#">Bedding & Bath</a>
+                                                                <p>Semper maecenas habitasse metus scelerisque</p>
+                                                            </li>
+                                                            <li><a href="#">Appilances</a>
+                                                                <p>Consectetur placerat leo aenean sagittis</p>
+                                                            </li>
+                                                            <li><a href="#">Patio, Lawn & Garden</a>
+                                                                <p>Arcu eros vitae netus porta</p>
+                                                            </li>
+                                                            <li><a href="#">Wedding Registry</a>
+                                                                <p>Senectus non consectetur felis litora</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <h5 class="dropdown-menu-category-title">Home Improvement</h5>
+                                                        <ul class="dropdown-menu-category-list">
+                                                            <li><a href="#">Home Improvement</a>
+                                                                <p>Inceptos ligula cras aliquam fames</p>
+                                                            </li>
+                                                            <li><a href="#">Lamps & Light Fixtures</a>
+                                                                <p>Dui tempus tempor sed luctus</p>
+                                                            </li>
+                                                            <li><a href="#">Kitchen & Bath Fixtures</a>
+                                                                <p>Quis sociis tellus sociosqu magnis</p>
+                                                            </li>
+                                                            <li><a href="#">Home Automation</a>
+                                                                <p>Elit venenatis in faucibus venenatis</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <img class="dropdown-menu-category-section-theme-img" src="/guest/img/test_cat/2-i.png" alt="Image Alternative text" title="Image Title" style="right: -10px;" />
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown"><a class="navbar-item-top" href="#">Following</a>
+                        </li>
+                        <li class="dropdown"><a class="navbar-item-top" href="#">Today Delas</a>
+                        </li>
+                        <li class="dropdown"><a class="navbar-item-top" href="#">Gift Cards</a>
+                        </li>
+                        <li class="dropdown"><a class="navbar-item-top" href="#">Gift Ideas</a>
+                        </li>
+                        <li class="dropdown"><a class="navbar-item-top" href="#">Weekly Ad</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" class="navbar-item-top">Shipping</a>
+                        </li>
+                        <li><a href="#" class="navbar-item-top">Payment</a>
+                        </li>
+                        <li><a href="#" class="navbar-item-top">Customer Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- =========================================== -->
+        <div class="owl-carousel owl-loaded owl-nav-dots-inner" data-options='{"items":1,"loop":true,"autoplay":true,"autoplayTimeout":5000}'>
+            <div class="owl-item">
+                <div class="slider-item" style="background-color:#E3D8FF;">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-left">
+                                <h4 class="slider-item-caption-title">Playstation 4</h4>
+                                <p class="slider-item-caption-desc">This is for The Players</p><a class="btn btn-lg btn-ghost btn-black" href="#">Shop Now</a>
+                            </div>
+                            <img class="slider-item-img-right" src="/guest/img/test_slider/13-i.png" alt="Image Alternative text" title="Image Title" style="top: 60%; width: 56%;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-item">
+                <div class="slider-item" style="background-image:url(/guest/img/1400x500.png);">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-right slider-item-caption-white">
+                                <h4 class="slider-item-caption-title">Smart Watches</h4>
+                                <p class="slider-item-caption-desc">Get One Just from $99</p><a class="btn btn-lg btn-ghost btn-white" href="#">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-item">
+                <div class="slider-item" style="background-color:#E5F54B;">
+                    <div class="container">
+                        <div class="slider-item-inner">
+                            <div class="slider-item-caption-left">
+                                <h4 class="slider-item-caption-title">Run! Run! Run!</h4>
+                                <p class="slider-item-caption-desc">Your Running Shoes, Right Away.</p><a class="btn btn-lg btn-ghost btn-black" href="#">Shop Now</a>
+                            </div>
+                            <img class="slider-item-img-right" src="/guest/img/test_slider/3-i.png" alt="Image Alternative text" title="Image Title" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- scripts -->
