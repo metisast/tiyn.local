@@ -65,6 +65,9 @@ Route::group(
                 'as' => 'admin.index',
                 'uses' => 'AdminController@index'
             ]);
+
+            /*Продукты*/
+            Route::resource('admin/products', 'ProductsController');
         });
 
         /*

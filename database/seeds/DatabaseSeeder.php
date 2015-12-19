@@ -15,6 +15,14 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         // $this->call(UserTableSeeder::class);
+        $faker = Faker\Factory::create();
+        for($i = 0; $i < 10; $i++) {
+            DB::table('products')->insert([
+                'title' => $faker->text(30),
+                'description' => $faker->text(200),
+                'count' => $faker->randomDigit(1)
+            ]);
+        }
 
         Model::reguard();
     }

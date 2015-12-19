@@ -13,10 +13,8 @@
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="/admin/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="/admin/dist/css/skins/skin-blue.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +39,7 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            @include('admin.template.content-header')
+            @yield('content', 'Page...')
         </div>
     </div>
 
@@ -58,5 +56,18 @@
     <!-- AdminLTE for demo purposes -->
     <script src="/admin/dist/js/demo.js"></script>
 
+    <script>
+        $(document).ready(function(){
+            var CSRF_TOKEN = $(this).find( 'input[name=_token]' ).val();
+            $.ajax({
+                url: 'http://tiyn.local/ru/admin/products',
+                type: 'POST',
+                data: {_token: CSRF_TOKEN},
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

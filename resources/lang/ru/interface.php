@@ -19,6 +19,8 @@
         /*Admin*/
         'adminTitle' => 'Панель администратора',
         'adminMainNav' => 'Навигация',
+        'adminDashboard' => 'Состояние',
+        'adminProducts' => 'Товары',
 
         /*User status*/
         'userAdmin' => 'Администратор',
