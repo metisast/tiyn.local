@@ -55,42 +55,8 @@
     <script src="/admin/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/admin/dist/js/app.min.js"></script>
+    <!-- a.s Ajax -->
+    <script src="/admin/plugins/as-ajax/script.js"></script>
 
-
-    <script>
-        $(document).ready(function(){
-            var CSRF_TOKEN = $(this).find('input[name=_token]').val();
-            $.ajax({
-                url: $('#ajax-path').attr('data-path'),
-                type: 'POST',
-                data: {_token: CSRF_TOKEN},
-                beforeSend:function(){
-                    $('tbody').append("<div class='loading'></div>");
-                },
-                success: function (data) {
-                    $('#view-table').find('thead').after(data);
-                }
-            });
-
-            $(document).on('click', '.pagination a', function(e){
-                e.preventDefault();
-                var page = $(this).attr('href').split('page=')[1];
-                getProducts(page);
-            });
-            function getProducts(page){
-                console.log('get page - ' + page);
-                $.ajax({
-                    url: $('#ajax-path').attr('data-path')+'?page='+page,
-                    type: 'POST',
-                    data: {_token: CSRF_TOKEN}
-                }).done(function(data){
-                    $('#view-table').find('tbody').remove();
-                    $('#view-table').find('tfoot').remove();
-                    $('#view-table').find('thead').after(data);
-                    location.hash = page;
-                });
-            }
-        });
-    </script>
 </body>
 </html>

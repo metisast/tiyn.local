@@ -41,6 +41,7 @@ class ProductsController extends Controller
      */
     public function store(Product $product, Request $request)
     {
+        sleep(1);
         if($request->ajax())
         {
             $i = 1;

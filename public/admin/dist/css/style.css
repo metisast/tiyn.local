@@ -1,7 +1,8 @@
 /*Custom styles*/
 .loading{
-    position: absolute;
+    position: fixed;
     left: 50%;
+    top: 40%;
     margin: 10px 0 10px -51px;
     text-align: center;
     width: 102px;
@@ -22,4 +23,7 @@
     cursor: pointer;
     padding-top: 5px;
     margin-left: 5px;
+}
+#view-table{
+    position: relative;
 }
