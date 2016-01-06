@@ -3318,11 +3318,11 @@ S2.define('select2/data/ajax',[
         var results = self.processResults(data, params);
 
         if (self.options.get('debug') && window.console && console.error) {
-          // Check to make sure that the response included a `results` key.
+          // Check to make sure that the _response included a `results` key.
           if (!results || !results.results || !$.isArray(results.results)) {
             console.error(
               'Select2: The AJAX results did not return an array in the ' +
-              '`results` key of the response.'
+              '`results` key of the _response.'
             );
           }
         }

@@ -2476,7 +2476,7 @@
 	
 				if ( $.inArray( true, ret ) === -1 ) {
 					if ( error == "parsererror" ) {
-						_fnLog( oSettings, 0, 'Invalid JSON response', 1 );
+						_fnLog( oSettings, 0, 'Invalid JSON _response', 1 );
 					}
 					else if ( xhr.readyState === 4 ) {
 						_fnLog( oSettings, 0, 'Ajax error', 7 );
@@ -7423,7 +7423,7 @@
 	
 	
 	/**
-	 * Get the JSON response from the last Ajax request that DataTables made to the
+	 * Get the JSON _response from the last Ajax request that DataTables made to the
 	 * server. Note that this returns the JSON from the first table in the current
 	 * context.
 	 *

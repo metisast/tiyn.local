@@ -15,6 +15,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="/admin/dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="/admin/dist/css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,6 +42,7 @@
             <!-- Content Header (Page header) -->
             @yield('content', 'Page...')
         </div>
+
     </div>
 
     <!-- jQuery 2.1.4 -->
@@ -53,20 +55,41 @@
     <script src="/admin/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/admin/dist/js/app.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="/admin/dist/js/demo.js"></script>
+
 
     <script>
         $(document).ready(function(){
-            var CSRF_TOKEN = $(this).find( 'input[name=_token]' ).val();
+            var CSRF_TOKEN = $(this).find('input[name=_token]').val();
             $.ajax({
-                url: 'http://tiyn.local/ru/admin/products',
+                url: $('#ajax-path').attr('data-path'),
                 type: 'POST',
                 data: {_token: CSRF_TOKEN},
+                beforeSend:function(){
+                    $('tbody').append("<div class='loading'></div>");
+                },
                 success: function (data) {
-                    console.log(data);
+                    $('#view-table').find('thead').after(data);
                 }
             });
+
+            $(document).on('click', '.pagination a', function(e){
+                e.preventDefault();
+                var page = $(this).attr('href').split('page=')[1];
+                getProducts(page);
+            });
+            function getProducts(page){
+                console.log('get page - ' + page);
+                $.ajax({
+                    url: $('#ajax-path').attr('data-path')+'?page='+page,
+                    type: 'POST',
+                    data: {_token: CSRF_TOKEN}
+                }).done(function(data){
+                    $('#view-table').find('tbody').remove();
+                    $('#view-table').find('tfoot').remove();
+                    $('#view-table').find('thead').after(data);
+                    location.hash = page;
+                });
+            }
         });
     </script>
 </body>

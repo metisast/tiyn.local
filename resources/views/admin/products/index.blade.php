@@ -15,35 +15,44 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Поиск</h3>
+                    </div>
                     <div class="box-body">
                         <div class="row">
+                            <form name="search" class="as-search">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Название">
+                                </div>
+                                <div class="col-md-3">
+                                    <select name="" class="form-control">
+                                        <option value="0">Выберите количество</option>
+                                        <option value="1">1</option>
+                                        <option value="2">6</option>
+                                        <option value="3">9</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <a class="glyphicon glyphicon-refresh"></a>
+                                    <a class="glyphicon glyphicon-trash"></a>
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <div class="row">
                             <div class="col-sm-12">
-                                <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                <table id="view-table" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                                    {{ csrf_field() }}
+                                    <input type="hidden" data-path="http://tiyn.local/ru/admin/products" id="ajax-path">
                                     <thead>
-                                    <tr role="row">
-                                        <th class="sorting_desc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending" aria-sort="descending">№</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">Название</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending">Описание</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">Количество</th>
-                                        <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending">Действия</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        {{ csrf_field() }}
-                                        @foreach($products as $product)
-                                        <tr role="row" class="odd">
-                                            <td class="sorting_1">{{ $i++ }}</td>
-                                            <td class="">{{ $product->title }}</td>
-                                            <td>{{ $product->description }}</td>
-                                            <td>{{ $product->count }}</td>
-                                            <td><input type="checkbox"></td>
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
                                         <tr>
-
+                                            <th>№</th>
+                                            <th>Название</th>
+                                            <th>Описание</th>
+                                            <th>Количество</th>
+                                            <th>Действия</th>
                                         </tr>
-                                    </tfoot>
+                                    </thead>
                                 </table>
                             </div>
                         </div>

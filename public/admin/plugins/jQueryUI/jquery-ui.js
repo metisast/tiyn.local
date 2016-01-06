@@ -16352,11 +16352,11 @@ var tooltip = $.widget( "ui.tooltip", {
 
 		content = contentOption.call( target[0], function( response ) {
 
-			// IE may instantly serve a cached response for ajax requests
+			// IE may instantly serve a cached _response for ajax requests
 			// delay this call to _open so the other call to _open runs first
 			that._delay(function() {
 
-				// Ignore async response if tooltip was closed already
+				// Ignore async _response if tooltip was closed already
 				if ( !target.data( "ui-tooltip-open" ) ) {
 					return;
 				}

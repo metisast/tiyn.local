@@ -16,12 +16,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Product $product)
+    public function index(Product $product, Request $request)
     {
-        $i = 1;
+        $products = $product->paginate(5);
         return view('admin.products.index')
-            ->with('products', $product->all())
-            ->with('i', $i);
+            ->with('products', $products);
     }
 
     /**
@@ -40,9 +39,15 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Product $product)
+    public function store(Product $product, Request $request)
     {
-        return $product->all();
+        if($request->ajax())
+        {
+            $i = 1;
+            return view('admin._response.products-index')
+                ->with('products', $product->paginate(5))
+                ->with('i', $i);
+        }
     }
 
     /**
@@ -53,7 +58,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
