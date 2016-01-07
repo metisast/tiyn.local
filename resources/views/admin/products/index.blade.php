@@ -22,14 +22,15 @@
                         <div class="row">
                             <form name="search" class="as-search">
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" placeholder="Название">
+                                    <input type="text" class="form-control" placeholder="Название" name="title">
                                 </div>
                                 <div class="col-md-3">
-                                    <select name="" class="form-control">
+                                    <select name="count" class="form-control">
                                         <option value="0">Выберите количество</option>
                                         <option value="1">1</option>
-                                        <option value="2">6</option>
-                                        <option value="3">9</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="9">9</option>
                                     </select>
                                 </div>
                                 <div class="col-md-1">

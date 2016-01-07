@@ -1,6 +1,6 @@
 /*Custom styles*/
 .loading{
-    position: fixed;
+    position: absolute;
     left: 50%;
     top: 40%;
     margin: 10px 0 10px -51px;

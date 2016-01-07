@@ -18,7 +18,7 @@ class ProductsController extends Controller
      */
     public function index(Product $product, Request $request)
     {
-        $products = $product->paginate(5);
+        $products = $product->paginate(10);
         return view('admin.products.index')
             ->with('products', $products);
     }
@@ -44,9 +44,10 @@ class ProductsController extends Controller
         sleep(1);
         if($request->ajax())
         {
+            $request = $request->all();
             $i = 1;
             return view('admin._response.products-index')
-                ->with('products', $product->paginate(5))
+                ->with('products', $product->search($request))
                 ->with('i', $i);
         }
     }

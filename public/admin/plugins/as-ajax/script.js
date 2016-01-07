@@ -1,6 +1,12 @@
 ;$(document).ready(function(){
-    /*First*/
-    asQueryTable(null, "POST");
+    /*Get data in inputs*/
+    function getDataInputs(){
+        var data = $('.as-search').serialize();
+        console.log(data);
+        return data;
+    }
+    /*First list load*/
+    asQueryTable(getDataInputs(), "POST");
 
     /*Pagination click*/
     $(document).on('click', '.pagination a', function(e){
@@ -13,9 +19,22 @@
     /*Pagination*/
     function getItemsList(page){
         var path = $('#system-path').attr('data-path')+'?page='+page;
-        asQueryTable(null, "POST", path);
+        asQueryTable(getDataInputs(), "POST", path);
         location.hash = page;
     }
+
+    /*Search*/
+    function asSearch(){
+        var searchInputs = $('.as-search').find('input');
+        var searchSelects = $('.as-search').find('select');
+        searchInputs.keyup(function(e){
+             asQueryTable(getDataInputs(), "POST");
+        });
+        searchSelects.change(function(){
+            asQueryTable(getDataInputs(), "POST");
+        });
+    }
+    asSearch();
 
     /*Query*/
     function asQueryTable(data, method, path){
@@ -25,7 +44,7 @@
         $.ajax({
             url: (path == null) ? $('#system-path').attr('data-path') : path,
             type: method,
-            data: {_token: CSRF_TOKEN},
+            data: (data == null) ? '_token=' + CSRF_TOKEN : '_token=' + CSRF_TOKEN + '&' + data,
             beforeSend:function(){
                 $('#view-table').after("<div class='loading'></div>");
             },
