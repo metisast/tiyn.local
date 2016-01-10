@@ -6,36 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function search($request)
+    protected $fillable = ['title', 'count'];
+
+    public function scopeFilter($query, $params, $items)
     {
-        //$products = new \Illuminate\Database\Eloquent\Collection();
-        $products = '';
-
-        if($request['title'] != '')
+        if ( isset($params['count']) && trim($params['count']) != 0 )
         {
-            $title = $request['title'];
-            Product::where('title',"LIKE", "%$title%");
+            $query->where('count', '=', trim($params['count']));
         }
-        else if($request['count'] != 0)
+
+        if ( isset($params['title']) && trim($params['title']) != '' )
         {
-            Product::where('count','=', $request['count']);
+            $query->where('title', 'LIKE', '%'.trim($params['title'].'%'));
         }
-        else
-        {
-            $products = Product::paginate(10);
-            return $products;
-        }
-        /*$title = null;
-        $count = null;
-        if($request['title'] != ''){$title = $request['title'];}
-        if($request['count'] != 0){$count = $request['count'];}
 
-        $products = Product::where('title', "LIKE", "%$title%")
-            ->where('count','=',$count);*/
-
-        $products = Product::paginate(10);
-        return $products;
-
+        return $query->paginate($items);
     }
-
 }

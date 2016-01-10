@@ -1,4 +1,12 @@
 ;$(document).ready(function(){
+    /*init main data*/
+    var data = {
+        searchInputs: $('.as-search').find('input'),
+        searchSelects: $('.as-search').find('select'),
+        keyBlock: [9, 16, 17, 18, 20, 91]
+    }
+
+    asSearch();
     /*Get data in inputs*/
     function getDataInputs(){
         var data = $('.as-search').serialize();
@@ -6,7 +14,7 @@
         return data;
     }
     /*First list load*/
-    asQueryTable(getDataInputs(), "POST");
+    asQueryTable(null, "POST");
 
     /*Pagination click*/
     $(document).on('click', '.pagination a', function(e){
@@ -18,40 +26,56 @@
 
     /*Pagination*/
     function getItemsList(page){
-        var path = $('#system-path').attr('data-path')+'?page='+page;
+        var path = $('#system-path').data('path')+'?page='+page;
         asQueryTable(getDataInputs(), "POST", path);
         location.hash = page;
     }
 
-    /*Search*/
+    /*Search handler*/
     function asSearch(){
-        var searchInputs = $('.as-search').find('input');
-        var searchSelects = $('.as-search').find('select');
-        searchInputs.keyup(function(e){
-             asQueryTable(getDataInputs(), "POST");
+        data.searchInputs.keyup(function(e){
+            var status = true;
+            data.keyBlock.some(function(number){
+                 if(number === e.keyCode) status = false;
+            });
+            status ? asQueryTable(getDataInputs(), "POST") : e.preventDefault();
         });
-        searchSelects.change(function(){
+        data.searchSelects.change(function(){
             asQueryTable(getDataInputs(), "POST");
         });
     }
-    asSearch();
+
+    /*Search update*/
+    $('#as-search-update').click(function(){
+        var page = $(document).find('.active span').text();
+        var path = $('#system-path').data('path')+'?page='+page;
+        asQueryTable(getDataInputs(), "POST", path);
+    });
+    /*Search clear*/
+    $('#as-search-clear').click(function(){
+        data.searchInputs.val('');
+        data.searchSelects.val(0);
+        asQueryTable(null, "POST");
+        location.hash = '1';
+    });
 
     /*Query*/
     function asQueryTable(data, method, path){
         data = data || null;
         path = path || null;
+        var table = $('#view-table');
+        table.find('tbody').remove();
+        table.find('tfoot').remove();
         var CSRF_TOKEN = $(document).find('input[name=_token]').val();
         $.ajax({
             url: (path == null) ? $('#system-path').attr('data-path') : path,
             type: method,
             data: (data == null) ? '_token=' + CSRF_TOKEN : '_token=' + CSRF_TOKEN + '&' + data,
             beforeSend:function(){
-                $('#view-table').after("<div class='loading'></div>");
+                table.after("<div class='loading'></div>");
             },
-            success: function (data) {
-                $('#view-table').find('tbody').remove();
-                $('#view-table').find('tfoot').remove();
-                $('#view-table').find('thead').after(data);
+            success: function (data) {;
+                table.find('thead').after(data);
             },
             complete: function(){
                 $('.loading').hide();

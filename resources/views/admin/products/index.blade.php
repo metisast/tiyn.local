@@ -25,6 +25,9 @@
                                     <input type="text" class="form-control" placeholder="Название" name="title">
                                 </div>
                                 <div class="col-md-3">
+                                    <input type="text" class="form-control" placeholder="Имя" name="name">
+                                </div>
+                                <div class="col-md-3">
                                     <select name="count" class="form-control">
                                         <option value="0">Выберите количество</option>
                                         <option value="1">1</option>
@@ -34,8 +37,8 @@
                                     </select>
                                 </div>
                                 <div class="col-md-1">
-                                    <a class="glyphicon glyphicon-refresh"></a>
-                                    <a class="glyphicon glyphicon-trash"></a>
+                                    <a class="glyphicon glyphicon-refresh" id="as-search-update"></a>
+                                    <a class="glyphicon glyphicon-trash" id="as-search-clear"></a>
                                 </div>
                             </form>
                         </div>

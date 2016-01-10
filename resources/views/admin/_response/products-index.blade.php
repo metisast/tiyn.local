@@ -1,13 +1,19 @@
 <tbody>
-@foreach($products as $product)
-    <tr role="row">
-        <td class="sorting_1">{{ $i++ }}</td>
-        <td class="">{{ $product->title }}</td>
-        <td>{{ $product->description }}</td>
-        <td>{{ $product->count }}</td>
-        <td><input type="checkbox"></td>
+@if($products->count() != 0)
+    @foreach($products as $product)
+        <tr>
+            <td class="sorting_1">{{ $i++ }}</td>
+            <td class="">{{ $product->title }}</td>
+            <td>{{ $product->description }}</td>
+            <td>{{ $product->count }}</td>
+            <td><input type="checkbox"></td>
+        </tr>
+    @endforeach
+@else
+    <tr>
+        <td colspan="5" class="text-center">Пусто</td>
     </tr>
-@endforeach
+@endif
 </tbody>
 <tfoot>
     <tr>

@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
+use Faker\Provider\Base;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProductsController extends Controller
+class ProductsController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +19,7 @@ class ProductsController extends Controller
      */
     public function index(Product $product, Request $request)
     {
-        $products = $product->paginate(10);
+        $products = $product->paginate($this->itemsCount);
         return view('admin.products.index')
             ->with('products', $products);
     }
@@ -45,9 +46,10 @@ class ProductsController extends Controller
         if($request->ajax())
         {
             $request = $request->all();
+            $products = $product->filter($request, $this->itemsCount);
             $i = 1;
             return view('admin._response.products-index')
-                ->with('products', $product->search($request))
+                ->with('products', $products)
                 ->with('i', $i);
         }
     }
