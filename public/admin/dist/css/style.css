@@ -27,3 +27,28 @@
 #view-table{
     position: relative;
 }
+/*Top drop menu*/
+.languages-menu .header{
+    padding: 7px 10px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.languages-menu .menu{
+
+}
+.languages-menu .menu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.languages-menu .menu li a{
+    display: block;
+    font-size: 13px;
+    padding: 0px 7px;
+    border-bottom: 1px solid #f4f4f4;
+}
+.languages-menu .menu li:last-child a{
+    border-bottom: none;
+}
+.languages-menu .menu li a img{
+    padding: 0 5px;
+}
