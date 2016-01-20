@@ -46,8 +46,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <table id="view-table" class="table table-bordered table-hover dataTable" role="grid">
-                                    {{ csrf_field() }}
-                                    <input type="hidden" data-path="http://tiyn.local/ru/admin/products" id="system-path">
+                                    <input type="hidden" data-path="{{route($lang.'.admin.products.store')}}" id="system-path">
                                     <thead>
                                         <tr>
                                             <th>№</th>

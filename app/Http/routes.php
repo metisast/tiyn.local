@@ -67,7 +67,7 @@ Route::group(
             ]);
 
             /*Продукты*/
-            Route::resource('admin/products', 'ProductsController');
+            Route::resource("/admin/products", "ProductsController");
         });
 
         /*

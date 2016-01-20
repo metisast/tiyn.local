@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Product;
-use Faker\Provider\Base;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class ProductsController extends BaseController
 {

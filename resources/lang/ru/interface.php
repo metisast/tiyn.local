@@ -26,5 +26,8 @@
         'userAdmin' => 'Администратор',
 
         /*Guest*/
-        'guestWelcome' => 'Добро пожаловать!'
+        'guestWelcome' => 'Добро пожаловать!',
+
+        /*Language*/
+        'langTitle' => 'Выберите язык'
     ];

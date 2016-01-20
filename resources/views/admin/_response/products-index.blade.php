@@ -2,8 +2,8 @@
 @if($products->count() != 0)
     @foreach($products as $product)
         <tr>
-            <td class="sorting_1">{{ $i++ }}</td>
-            <td class="">{{ $product->title }}</td>
+            <td>{{ $i++ }}</td>
+            <td>{{ $product->title }}</td>
             <td>{{ $product->description }}</td>
             <td>{{ $product->count }}</td>
             <td><input type="checkbox"></td>

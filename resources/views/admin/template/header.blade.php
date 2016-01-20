@@ -17,6 +17,20 @@
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                <li class="dropdown language-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-language"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="header">{{trance('interface.langTitle')}}</li>
+                        <li>
+                            <!-- inner menu: contains the actual data -->
+                            <ul class="menu">
+                                <li></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
