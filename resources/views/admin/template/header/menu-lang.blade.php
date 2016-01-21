@@ -10,11 +10,12 @@
         <li>
             <!-- inner menu: contains the actual data -->
             <ul class="menu">
+                {{-- Create supported locale --}}
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     @if($localeCode != $lang)
                     <li>
                         <a rel="alternate" hreflang="{{$localeCode}}" href="{{LaravelLocalization::getLocalizedURL($localeCode) }}">
-                            <img src="/images/ico/flags/{{$localeCode}}.png" alt="">{{{ $properties['native'] }}}
+                            <img src="/images/ico/flags/{{$localeCode}}.png" alt="">{{ $properties['native'] }}
                         </a>
                     </li>
                     @endif
