@@ -14,9 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        /*Localization variable*/
         view()->composer('*', function($view){
             $view->with('lang', LaravelLocalization::getCurrentLocale());
         });
+
+        /*Admin main menu list*/
+        view()->composer(
+            'admin/*', 'App\Http\Composers\AdminMainMenuListComposer'
+        );
     }
 
     /**

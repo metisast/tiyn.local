@@ -52,3 +52,6 @@
 .languages-menu .menu li a img{
     padding: 0 5px;
 }
+.sidebar-menu .treeview-menu > li > a{
+    font-size: 13px;
+}

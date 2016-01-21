@@ -21,6 +21,10 @@
         'adminMainNav' => 'Навигация',
         'adminDashboard' => 'Состояние',
         'adminProducts' => 'Товары',
+        'adminProductsAll' => 'Все товары',
+        'adminProductsAdd' => 'Добавить товар',
+        'adminStatus' => 'Статус',
+        'adminStatusTitle' => 'Просмотр состояния магазина',
 
         /*User status*/
         'userAdmin' => 'Администратор',
