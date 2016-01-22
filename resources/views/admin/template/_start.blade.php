@@ -16,6 +16,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="/admin/dist/css/AdminLTE.css">
     <link rel="stylesheet" href="/admin/dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="/admin/plugins/iCheck/square/blue.css">
     <link rel="stylesheet" href="/admin/dist/css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,5 +60,6 @@
     <!-- a.s Ajax -->
     <script src="/admin/plugins/as-ajax/script.js"></script>
 
+    <script src="/admin/plugins/iCheck/icheck.min.js"></script>
 </body>
 </html>

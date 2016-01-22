@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
 
         /*Admin main menu list*/
         view()->composer(
-            'admin/*', 'App\Http\Composers\AdminMainMenuListComposer'
+            'admin/template/side-bar/menu-left', 'App\Http\Composers\AdminMainMenuListComposer'
         );
     }
 

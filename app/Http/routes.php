@@ -61,13 +61,20 @@ Route::group(
         |
         */
         Route::group(['middleware' => 'auth', 'namespace' => 'Admin'], function() {
-            Route::get('admin', [
-                'as' => 'admin.index',
-                'uses' => 'AdminController@index'
-            ]);
 
-            /*Продукты*/
-            Route::resource("/admin/products", "ProductsController");
+            /*Status panel*/
+            Route::group(['_active_menu' => 'admin'], function(){
+                Route::get('admin', [
+                    'as' => 'admin.index',
+                    'uses' => 'AdminController@index'
+                ]);
+            });
+
+            /*Products*/
+            Route::group(['_active_menu' => 'products'], function(){
+                Route::resource("/admin/products", "ProductsController");
+            });
+
         });
 
         /*

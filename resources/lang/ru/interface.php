@@ -20,11 +20,12 @@
         'adminTitle' => 'Панель администратора',
         'adminMainNav' => 'Навигация',
         'adminDashboard' => 'Состояние',
+        'adminStatusTitle' => 'Просмотр состояния магазина',
+        /*Admin List Menu*/
+        'adminStatus' => 'Статус',
         'adminProducts' => 'Товары',
         'adminProductsAll' => 'Все товары',
         'adminProductsAdd' => 'Добавить товар',
-        'adminStatus' => 'Статус',
-        'adminStatusTitle' => 'Просмотр состояния магазина',
 
         /*User status*/
         'userAdmin' => 'Администратор',

@@ -1,3 +1,4 @@
+{{-- Admin Index page View --}}
 @extends('admin.template._start')
 
 @section('content')

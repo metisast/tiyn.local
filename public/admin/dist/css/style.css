@@ -55,3 +55,6 @@
 .sidebar-menu .treeview-menu > li > a{
     font-size: 13px;
 }
+td .icheck{
+    margin: 0;
+}

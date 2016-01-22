@@ -28,6 +28,7 @@ class ProductsController extends BaseController
      */
     public function create()
     {
+        return view('admin.products.create');
 
     }
 

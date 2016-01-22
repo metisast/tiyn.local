@@ -15,16 +15,18 @@ class AdminMainMenuListComposer
      */
     protected $local;
     protected $request;
+    protected $routeName;
 
     public function __construct(Request $request)
     {
-        $this->local = LaravelLocalization::getCurrentLocale();
-        $this->request = $request->url();
-        //dd($this->request);
+        $this->local = LaravelLocalization::getCurrentLocale(); //Current local
+        $this->request = $request->url(); //Current url
+        $this->routeName = $request->route()->getAction()['_active_menu']; //Current route name
+        //dd($this->routeName);
     }
 
     /**
-     * Bind data to the view.
+     * Show List Menu
      *
      * @param  View  $view
      * @return void
@@ -35,11 +37,13 @@ class AdminMainMenuListComposer
             trans('interface.adminDashboard') => [
                 'link' => route('admin.index'),
                 'ico' => 'fa-dashboard',
+                'routeName' => 'admin',
                 'subLink' => null
             ],
             trans('interface.adminProducts') => [
                 'link' => route($this->local.'.admin.products.index'),
                 'ico' => 'fa-folder-o',
+                'routeName' => 'products',
                 'subLink' => [
                     trans('interface.adminProductsAll') =>[
                         'link' => route($this->local.'.admin.products.index'),
@@ -53,7 +57,10 @@ class AdminMainMenuListComposer
             ]
         ];
 
-        $view->with('adminListComp', $list)->with('requestListComp', $this->request);
+        $view
+            ->with('adminListComp', $list)
+            ->with('requestListComp', $this->request)
+            ->with('routeName', $this->routeName);
 
     }
 }
