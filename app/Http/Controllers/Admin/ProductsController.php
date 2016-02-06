@@ -14,6 +14,13 @@ class ProductsController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
+    protected $product;
+
+    public function __construct(Product $product)
+    {
+        $this->product = $product;
+    }
+
     public function index(Product $product, Request $request)
     {
         $products = $product->paginate($this->itemsCount);
@@ -40,7 +47,6 @@ class ProductsController extends BaseController
      */
     public function store(Product $product, Request $request)
     {
-        sleep(1);
         if($request->ajax())
         {
             $request = $request->all();
@@ -92,8 +98,26 @@ class ProductsController extends BaseController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+        if($request->ajax())
+        {
+            $items = $request->items;
+            if(!$items)
+            {
+                $message = [
+                    'title' => trans('interface.adminMessageTitleDelete'),
+                    'text' => trans('interface.adminMessageTextDelete'),
+                    'deleteButton' => trans('interface.adminMessageTextButtonDelete')
+                ];
+                return view('admin._response.messages.confirm')
+                    ->with('message', $message)
+                    ->with('items', $items);
+            }
+
+            /*delete products*/
+            $this->product->destroy($items);
+        }
+
     }
 }

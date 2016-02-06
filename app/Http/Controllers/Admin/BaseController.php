@@ -7,6 +7,6 @@ use App\Http\Controllers\Controller;
 
 class BaseController extends Controller
 {
-    protected $itemsCount = 20; //items count per page
+    protected $itemsCount = 10; //items count per page
 
 }

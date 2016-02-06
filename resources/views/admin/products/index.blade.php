@@ -52,10 +52,15 @@
                                             <th>Название</th>
                                             <th>Описание</th>
                                             <th>Количество</th>
-                                            <th>Действия</th>
+                                            <th colspan="2" class="text-center">Действия</th>
                                         </tr>
                                     </thead>
                                 </table>
+                            </div>
+                            <!-- Action buttons -->
+                            <div class="col-sm-12 text-right">
+                                <a href="{{route($lang.'.admin.products.create')}}" class="btn btn-primary">{{trans('interface.adminProductsAdd')}}</a>
+                                <button class="btn btn-default" disabled id="btn-delete">Удалить</button>
                             </div>
                         </div>
                     </div>

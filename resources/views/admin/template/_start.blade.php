@@ -57,9 +57,9 @@
     <script src="/admin/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/admin/dist/js/app.min.js"></script>
+    <!-- iCheck plugin -->
+    <script src="/admin/plugins/iCheck/icheck.min.js"></script>
     <!-- a.s Ajax -->
     <script src="/admin/plugins/as-ajax/script.js"></script>
-
-    <script src="/admin/plugins/iCheck/icheck.min.js"></script>
 </body>
 </html>

@@ -26,6 +26,13 @@
         'adminProducts' => 'Товары',
         'adminProductsAll' => 'Все товары',
         'adminProductsAdd' => 'Добавить товар',
+        'adminProductsSales' => 'Продажи',
+
+        /*Admin messages*/
+        'adminMessageTitleDelete' => 'Потверждение удаления',
+        'adminMessageTextDelete' => 'Вы действительно желаете удалить выбранные элименты?',
+        'adminMessageTextButtonDelete' => 'Удалить',
+        'adminMessageTextButtonClose' => 'Закрыть',
 
         /*User status*/
         'userAdmin' => 'Администратор',

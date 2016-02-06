@@ -5,7 +5,7 @@
         @if($data['subLink'])
             @if($routeName == $data['routeName'])
                 <li class="treeview active">
-                    <a><i class="fa {{$data['ico']}}"></i> <span>{{$title}}</span></a>
+                    <a><i class="fa {{$data['ico']}}"></i> <span>{{$title}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         @foreach($data['subLink'] as $subTitle => $subData)
                             @if($requestListComp == $subData['link'])
@@ -18,7 +18,7 @@
                 </li>
             @else
                 <li class="treeview">
-                    <a><i class="fa {{$data['ico']}}"></i> <span>{{$title}}</span></a>
+                    <a><i class="fa {{$data['ico']}}"></i> <span>{{$title}}</span> <i class="fa fa-angle-left pull-right"></i></a>
                     <ul class="treeview-menu">
                         @foreach($data['subLink'] as $subTitle => $subData)
                             <li><a href="{{$subData['link']}}"><i class="fa {{$subData['ico']}}"></i> {{$subTitle}}</a></li>

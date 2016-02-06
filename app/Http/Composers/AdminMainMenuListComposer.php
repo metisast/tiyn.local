@@ -54,6 +54,12 @@ class AdminMainMenuListComposer
                         'ico' => 'fa-circle-o'
                     ],
                 ]
+            ],
+            trans('interface.adminProductsSales') => [
+                'link' => route($this->local.'.admin.sales.index'),
+                'ico' => 'fa-money',
+                'routeName' => 'sales',
+                'subLink' => null
             ]
         ];
 

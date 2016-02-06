@@ -53,7 +53,7 @@
     }
 
     /*Search update*/
-    $('#as-search-update').click(function(){
+    $('#as-search-update').on('click.update', function(){
         var page = $(document).find('.active span').text();
         var path = $('#system-path').data('path')+'?page='+page;
         asQueryTable(getDataInputs(), "POST", path);
@@ -73,7 +73,6 @@
         var table = $('#view-table');
         table.find('tbody').remove();
         table.find('tfoot').remove();
-        //var CSRF_TOKEN = $(document).find('input[name=_token]').val();
         $.ajax({
             url: (path == null) ? $('#system-path').attr('data-path') : path,
             type: method,
@@ -91,4 +90,110 @@
             }
         });
     }
+
+    /*===================================================*/
+
+    /*Delete button enabled*/
+    $(document).on('ifChecked', 'input', function(e){
+        var ch = $('input[name=item_id]');
+        $.each(ch, function(){
+            if($(this).prop('checked')){
+                $('#btn-delete').attr('disabled', false);
+                return false;
+            }
+        });
+    });
+    /*Delete button disabled*/
+    $(document).on('ifUnchecked', 'input', function(e){
+        var ch = $('input[name=item_id]');
+        var i = 1;
+        $.each(ch, function(){
+            if($(this).prop('checked')){
+                i++;
+            }
+        });
+        if(i == 1){
+            $('#btn-delete').attr('disabled', true);
+        }
+    });
+
+    /*Delete items*/
+    var btnDelete = $('#btn-delete');
+    btnDelete.click(function(){
+        var path = $('#system-path').attr('data-path')+'/delete';
+        var ch = $('input[name=item_id]');
+        var items = {};
+        items.del = [];
+        $.each(ch, function(){
+            if($(this).prop('checked')){
+                items.del.push($(this).attr('value'));
+            }
+        });
+        /*Query for message*/
+        $.ajax({
+            url: path,
+            type: "post",
+            data: {_method: 'delete'},
+            beforeSend: function () {
+                createShadowWrapper();
+            },
+            success: function (data) {
+                createMessage(data);
+                /*Success deleted*/
+                $(document).on('click', '.modal-send', function(){
+                    $.ajax({
+                        url: path,
+                        type: "post",
+                        data: {_method: 'delete',items: items.del},
+                        beforeSend: function(){
+                            $('#modal-dialog').hide();
+                            $('#as-search-update').trigger('click.update');
+                        },
+                        success: function(){
+
+                        },
+                        complete: function(){
+                            $('.shadow-wrapper').hide()
+                        }
+                    });
+                });
+            },
+            complete: function () {
+                $('.loading').hide();
+            }
+        });
+    });
+
+    /*Create shadow-wrapper*/
+    function createShadowWrapper(){
+        var div = $("<div>").addClass('shadow-wrapper');
+        var loader = $("<div>").addClass('loading');
+        $("body").prepend(div);
+        div.prepend(loader);
+    }
+
+    /*Create message modal*/
+    function createMessage(data){
+        $('.shadow-wrapper').append(data);
+
+        /*Centering message*/
+        var modal = $(document).find('#modal-dialog');
+        var height = modal.height();
+        var width = modal.width();
+
+        modal.css({
+            top: "50%",
+            left: "50%",
+            marginTop: -height/2+"px",
+            marginLeft: -width/2+"px"
+        });
+    }
+
+    /*Close modal and hide shadow*/
+    $(document).on('click', '.modal-close', function(){
+        $('#modal-dialog').hide();
+        $('.shadow-wrapper').hide();
+    });
+
+
 })(jQuery);

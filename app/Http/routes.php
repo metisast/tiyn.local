@@ -75,6 +75,11 @@ Route::group(
                 Route::resource("/admin/products", "ProductsController");
             });
 
+            /*Sales*/
+            Route::group(['_active_menu' => 'sales'], function(){
+                Route::resource("/admin/sales", "SalesController");
+            });
+
         });
 
         /*
